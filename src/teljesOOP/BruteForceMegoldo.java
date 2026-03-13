@@ -3,9 +3,13 @@ package teljesOOP;
 public class BruteForceMegoldo {
 
     private KettoIsmeretlenesEggyenlet eggyenlet;
+    private Megoldas[] megoldasok;
+    int db;
 
     public BruteForceMegoldo(KettoIsmeretlenesEggyenlet eggyenlet) {
         this.eggyenlet = eggyenlet;
+        megoldasok= new Megoldas[100];
+        db=0;
     }
 
     public void megoldo(int maxX, int maxY) {
@@ -15,12 +19,18 @@ public class BruteForceMegoldo {
 
                 if (eggyenlet.megoldasE(x, y)) {
 
-                    Megoldas m = new Megoldas(x, y);
-                    System.out.println(m.allapot());
-
+                    megoldasok[db] = new Megoldas(x, y);
+                    db++;
                 }
 
             }
         }
+    }
+    public Megoldas[] getMegoldasok(){
+        return megoldasok;
+    }
+    
+    public int getDb(){
+        return  db;
     }
 }
